@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,10 +13,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'HomeController@index');
+// Route::get('/result', 'HomeController@notFound')->name('notFound');
+Route::post('/input', 'DeteksiController@store')->name('store');
+Route::get('/result/{uniqid}', 'HomeController@result')->name('result');
+
+
+// ADMIN
+Route::prefix('admin')->middleware('auth')->name('admin')->group(function(){
+    Route::get('',  'DeteksiController@dashboard');
+
+    Route::get('/hasil-test-masyarakat', 'DeteksiController@index')->name('.hasil');
+});

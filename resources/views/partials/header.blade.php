@@ -28,9 +28,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                    @if( request()->routeIs('home') )
                     <li class="active"><a href="#home">HOME</a></li>
                     <li><a href="#identitas">IDENTITAS</a></li>
                     <li><a href="#pernyataan">PERNYATAAN</a></li>
+                    @elseif (request()->routeIs('result'))
+                    <li class="active"><a href="{{ route('home') }}">HOME</a></li>
+                    @endif
                     <li></li>
                 </ul>
             </div><!-- /.navbar-collapse -->

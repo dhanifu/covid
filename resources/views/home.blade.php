@@ -101,44 +101,40 @@
                             <p class="text-danger">{{ $errors->first('jeniskelamin') }}</p>
                         </div>
                         <div class="form-group col-md-12">
-                            <label for="tanggal_lahir">Tanggal Lahir</label>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <select name="tanggal_lahir" id="tanggal_lahir" class="form-control">
-                                        <option disabled selected>Tanggal</option>
-                                        @for($i=1; $i<=31; $i++) <option value="{{ $i < 10 ? '0'.$i : $i  }}">
-                                            {{ $i < 10 ? '0'.$i : $i  }}</option>
-                                            @endfor
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('tanggal_lahir') }}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <select name="bulan_lahir" id="bulan_lahir" class="form-control">
-                                        <option disabled selected>Bulan</option>
-                                        @for($i=1; $i<=count($bulan); $i++) <option value="{{ $i<10 ? '0'.$i : $i }}">
-                                            {{ $bulan[$i] }}</option>
-                                            @endfor
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('bulan_lahir') }}</p>
-                                </div>
-                                <div class="col-md-4">
-                                    <select name="tahun_lahir" id="tahun_lahir" class="form-control">
-                                        <option disabled selected>Tahun</option>
-                                        @for($i=1920; $i<=date('Y'); $i++) <option value="{{ $i }}">{{$i}}</option>
-                                            @endfor
-                                    </select>
-                                    <p class="text-danger">{{ $errors->first('tahun_lahir') }}</p>
-                                </div>
-                            </div>
+                            <label for="tanggal_lahir">Lahir</label>
+                                <select name="tanggal_lahir" id="tanggal_lahir" class="form-control">
+                                    <option disabled selected>Tanggal</option>
+                                    @for($i=1; $i<=31; $i++) <option value="{{ $i < 10 ? '0'.$i : $i  }}">
+                                        {{ $i < 10 ? '0'.$i : $i  }}</option>
+                                        @endfor
+                                </select>
+                                <p class="text-danger">{{ $errors->first('tanggal_lahir') }}</p>
                         </div>
+                        <div class="form-group col-md-12">
+                                <select name="bulan_lahir" id="bulan_lahir" class="form-control">
+                                    <option disabled selected>Bulan</option>
+                                    @for($i=1; $i<=count($bulan); $i++) <option value="{{ $i<10 ? '0'.$i : $i }}">
+                                        {{ $bulan[$i] }}</option>
+                                        @endfor
+                                </select>
+                                <p class="text-danger">{{ $errors->first('bulan_lahir') }}</p>
+                        </div>
+                        <div class="form-group col-md-12">
+                                <select name="tahun_lahir" id="tahun_lahir" class="form-control">
+                                    <option disabled selected>Tahun</option>
+                                    @for($i=1970; $i<=date('Y'); $i++) <option value="{{ $i }}">{{$i}}</option>
+                                        @endfor
+                                </select>
+                                <p class="text-danger">{{ $errors->first('tahun_lahir') }}</p>
+                        </div>
+                    </div>
+                    <div class="row col-md-6">
                         <div class="form-group col-md-12">
                             <label for="provinsi">Provinsi</label>
                             <input type="text" class="form-control" id="provinsi" name="provinsi"
                                 value="{{ old('provinsi') }}" placeholder="Provinsi">
                             <p class="text-danger">{{ $errors->first('provinsi') }}</p>
                         </div>
-                    </div>
-                    <div class="row col-md-6">
                         <div class="form-group col-md-12">
                             <label for="kota">Kota/Kab.</label>
                             <input type="text" class="form-control" id="kota" name="kota" value="{{ old('kota') }}"
@@ -213,7 +209,7 @@
                                     <td>{{ $i }}</td>
                                     <td>{{ $pernyataan[$i] }}</td>
                                     <td>
-                                        <input type="radio" name="no{{$i}}" value="1">
+                                        <input type="radio" class="custom-control-input" name="no{{$i}}" value="1">
                                     </td>
                                     <td>
                                         <input type="radio" name="no{{$i}}" value="0">

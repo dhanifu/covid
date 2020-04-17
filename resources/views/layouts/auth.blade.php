@@ -9,13 +9,13 @@
 
     @yield('title')
 
-    <link href="{{ asset('admin/css/coreui-icons.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/flag-icon.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/simple-line-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/coreui-icons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/flag-icon.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/simple-line-icons.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('admin/css/pace.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/pace.min.css') }}" rel="stylesheet">
 </head>
 <body class="app flex-row align-items-center">
     
@@ -24,12 +24,12 @@
         @yield('content')
     </div>
 
-    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/js/popper.min.js') }}"></script>
-    <script src="{{ asset('admin/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('admin/js/pace.min.js') }}"></script>
-    <script src="{{ asset('admin/js/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('admin/js/coreui.min.js') }}"></script>
+    <script src="{{ asset('public/admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/admin/js/popper.min.js') }}"></script>
+    <script src="{{ asset('public/admin/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/admin/js/pace.min.js') }}"></script>
+    <script src="{{ asset('public/admin/js/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('public/admin/js/coreui.min.js') }}"></script>
     <script>
         $('#ui-view').ajaxLoad();
         $(document).ajaxComplete(function() {

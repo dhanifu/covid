@@ -1,59 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
+<section class="app_feature_area">
     <div class="container">
         <div class="main_title">
             <h2>Hasil dari survey anda</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.</p>
+            <p>disini anda akan melihat hasil penilaiannya</p>
+        </div>
+
+        <center>
+            @if( $deteksi->jml_ya <= 7 )
+                <h1 class=" display-1 text-success">Resiko terkena Covid-19 Rendah</h1>
+            @elseif ( $deteksi->jml_ya <= 14 )
+                <h1 class=" display-1 text-warning">Resiko terkena Covid-19 Sedang</h1>
+            @elseif ( $deteksi->jml_ya <= 21)
+                <h1 class=" display-1 text-danger">Resiko terkena Covid-19 Tinggi</h1>
+            @endif
+        </center>
+
+        <br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="name">Nama</label>
+                    <input type="text" id="name" name="name" class="form-control" readonly value="{{ $deteksi->name }}" style="text-align: center">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="jk">Jenis Kelamin</label>
+                    <input type="text" id="jk" name="jk" class="form-control" readonly value="{{ $deteksi->jk == 'L' ? 'Laki-Laki' : 'Perempuan' }}" style="text-align: center">
+                </div>
+            </div>
         </div>
         <div class="row">
-                
-            <div class="col-md-12">
-                <div class="row col-md-6">
-                    <div class="form-group col-md-12">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ $deteksi->name }}" placeholder="Your Name">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="jeniskelamin">Jenis Kelamin</label>
-                        <input type="text" class="form-control" name="jeniskelamin" id="jeniskelamin" value="{{ $deteksi->jk == "L" ? "Laki-Laki" : "Perempuan" }}">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="provinsi">Provinsi</label>
-                        <input type="text" class="form-control" id="provinsi" name="provinsi" value="{{ $deteksi->provinsi }}" placeholder="Provinsi">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="umur">Umur</label>
-                        <input type="text" class="form-control" id="umur" name="umur" value="{{ $deteksi->umur }}" placeholder="Provinsi">
-                    </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="umur">Usia</label>
+                    <input type="text" id="umur" name="umur" class="form-control" readonly value="{{ $deteksi->umur }}" style="text-align: center">
                 </div>
-                <div class="row col-md-6">
-                    <div class="form-group col-md-12">
-                        <label for="kota">Kota/Kab.</label>
-                        <input type="text" class="form-control" id="kota" name="kota" value="{{ $deteksi->kota }}" placeholder="Kota">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="kecamatan">Kecamatan</label>
-                        <input type="text" class="form-control" id="kecamatan" name="kecamatan" value="{{ $deteksi->kecamatan }}" placeholder="Kecamatan">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="desa">Desa/Kel.</label>
-                        <input type="text" class="form-control" id="desa" name="desa" value="{{ $deteksi->desa }}" placeholder="Desa">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="jalan">Jalan & No.</label>
-                        <input type="text" class="form-control" id="jalan" name="jalan" value="{{ $deteksi->jalan }}" placeholder="Jl. Raya, No. 00">
-                    </div>
-                </div>
-                @if ($deteksi->jml_ya <= 7)
-                    RESIKO RENDAH
-                @elseif ($deteksi->jml_ya <= 14)
-                    RESIKO SEDANG
-                @elseif ($deteksi->jml_ya <= 21)
-                    RESIKO TINGGI
-                @endif
             </div>
-            <a href="{{ url('/') }}" class="btn btn-secondary">back</a>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input id="alamat" name="alamat" class="form-control" readonly style="text-align: center;" value="{{ $deteksi->jalan }},  Prov.{{ $deteksi->provinsi }}, Kab.{{ $deteksi->kota }}, Kec.{{ $deteksi->kecamatan }}, Des.{{ $deteksi->desa }}">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <button class="btn btn-primary" onclick="document.location.href='{{ route('home') }}'">Kembali</button>
+                </center>
+            </div>
         </div>
     </div>
+</section>
 @endsection

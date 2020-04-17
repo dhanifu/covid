@@ -65,4 +65,9 @@ class HomeController extends Controller
 
         return view('result', compact('uniqid', 'deteksi'));
     }
+
+    public function notFound()
+    {
+        return "<script>document.location.href='/covid';</script>";
+    }
 }

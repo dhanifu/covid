@@ -16,15 +16,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/', 'HomeController@index');
-// Route::get('/result', 'HomeController@notFound')->name('notFound');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/result', 'HomeController@notFound');
 Route::post('/input', 'DeteksiController@store')->name('store');
 Route::get('/result/{uniqid}', 'HomeController@result')->name('result');
 
 
-// ADMIN
-Route::prefix('admin')->middleware('auth')->name('admin')->group(function(){
-    Route::get('',  'DeteksiController@dashboard');
+// // ADMIN
+// Route::prefix('admin')->middleware('auth')->name('admin')->group(function(){
+//     Route::get('/',  'DeteksiController@dashboard');
 
-    Route::get('/hasil-test-masyarakat', 'DeteksiController@index')->name('.hasil');
-});
+//     Route::get('/hasil-test-masyarakat', 'DeteksiController@index')->name('.hasil');
+// });

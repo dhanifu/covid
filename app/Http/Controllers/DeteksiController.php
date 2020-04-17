@@ -7,39 +7,13 @@ use App\Deteksi;
 
 class DeteksiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function dashboard()
-    {
-        $deteksis = Deteksi::orderBy('created_at', 'DESC')->get();
 
-        return view('admin.dashboard', compact('deteksis'));
-    }
+	public function dashboard()
+	{
+		$deteksis = Deteksi::orderBy('created_at', 'DESC')->get();
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    // public function index()
-    // {
-    //     $deteksis = Deteksi::orderBy('updated_at', 'ASC')->get();
-
-    //     return view('admin.masyarakat.index', compact('deteksis'));
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+		return view('admin.dasboard', compact('deteksis'));
+	}
 
     /**
      * Store a newly created resource in storage.
@@ -102,55 +76,11 @@ class DeteksiController extends Controller
             'jml_ya' => $total
         ]);
 
-        // $id = Deteksi::select('uniqid')->where('uniqid', $deteksi['uniqid'])->get();
-        // $uniqid = substr($id, 12, 17);
-        // return redirect('result/'. $uniqid);
+        $id = Deteksi::select('uniqid')->where('uniqid', $deteksi['uniqid'])->get();
+        $uniqid = substr($id, 12, 17);
+        return redirect('result/'. $uniqid);
 
-        return back()->with('success', true);
+        // return back()->with('success', true);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Deteksi $deteksi)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Deteksi $deteksi)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Deteksi $deteksi)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Deteksi $deteksi)
-    {
-        //
-    }
 }

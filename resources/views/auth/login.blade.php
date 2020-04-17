@@ -12,7 +12,7 @@
                 <h1>Login</h1>
                 <p class="text-muted">Sign In to your account</p>
                 <div class="card-body">
-                    <form method="POST" action='{{ route('login') }}' aria-label="Login">
+                    <form method="POST" action="{{ route('login') }}" aria-label="Login">
                         @csrf
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
